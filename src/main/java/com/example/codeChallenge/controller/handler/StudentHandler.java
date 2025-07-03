@@ -19,12 +19,12 @@ import reactor.util.context.Context;
 public class StudentHandler {
 
     private final StudentService studentService;
-    private final StudentMapper userMapper;
+    private final StudentMapper studentMapper;
 
-    public Mono<ServerResponse> createUser (ServerRequest request) {
+    public Mono<ServerResponse> createStudent (ServerRequest request) {
         String messageId = getMessageId(request);
         return request.bodyToMono(StudentDTO.class)
-            .flatMap(student -> studentService.saveStudent(userMapper.studentDTOToStudent(student))
+            .flatMap(student -> studentService.saveStudent(studentMapper.studentDTOToStudent(student))
                 .doOnSuccess(savedStudent -> log.info("Student created successfully with code: {}", savedStudent.getCode()))
             )
             .flatMap(savedUser -> ServerResponse.status(HttpStatus.CREATED).bodyValue(""))
@@ -33,7 +33,7 @@ public class StudentHandler {
             .onErrorResume(ex -> HandleError.handleError(ex, messageId));
     }
 
-    public Mono<ServerResponse> getAllUsers (ServerRequest request) {
+    public Mono<ServerResponse> getAllStudents(ServerRequest request) {
         String messageId = getMessageId(request);
         return studentService.getAllStudents()
             .collectList()

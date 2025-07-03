@@ -15,5 +15,5 @@ public class StudentDTO {
     private String name;
     private String lastName;
     private String status;
-    private String age;
+    private int age;
 }

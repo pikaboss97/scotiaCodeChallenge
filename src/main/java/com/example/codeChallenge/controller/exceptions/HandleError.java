@@ -36,7 +36,7 @@ public class HandleError {
                     .param(technicalEx.getTechnicalMessage().getParam())
                     .build()));
         } else {
-            log.error("Unexpected error occurred for messageId: {}", messageId, ex);
+            log.error("Unexpected error occurred for messageId: {} {}", messageId, ex.getMessage());
             return buildErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, messageId, TechnicalMessage.INTERNAL_ERROR,
                 List.of(ErrorDTO.builder()
                     .code(TechnicalMessage.INTERNAL_ERROR.getCode())
