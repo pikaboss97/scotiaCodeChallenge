@@ -1,0 +1,11 @@
+,d88~~\                    d8   ,e,           888                          888   _
+8888     e88~~\  e88~-_  _d88__  "    /~~~8e  888-~88e    /~~~8e  888-~88e 888 e~ ~
+`Y88b   d888    d888   i  888   888       88b 888  888b       88b 888  888 888d8b
+ `Y88b, 8888    8888   |  888   888  e88~-888 888  8888  e88~-888 888  888 888Y88b
+   8888 Y888    Y888   '  888   888 C888  888 888  888P C888  888 888  888 888 Y88b
+\__88P'  "88__/  "88_-~   "88_/ 888  "88_-888 888-_88"   "88_-888 888  888 888  Y88b
+
+${AnsiColor.BRIGHT_GREEN}:: SCOTIA BANK :: Running Spring Boot ${spring-boot.version} :: :: JDK ${java.version} ::
+:: Service ${spring.application.name} ::
+            :: SCOTIA BANK ::
+${AnsiColor.DEFAULT}
