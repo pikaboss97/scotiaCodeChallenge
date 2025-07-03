@@ -13,6 +13,8 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 import reactor.util.context.Context;
 
+import java.util.UUID;
+
 @Component
 @RequiredArgsConstructor
 @Slf4j
@@ -44,6 +46,8 @@ public class StudentHandler {
     }
 
     private String getMessageId (ServerRequest serverRequest) {
-        return serverRequest.headers().firstHeader("x-message-id");
+        return serverRequest.headers().firstHeader("x-message-id") != null
+            ? serverRequest.headers().firstHeader("x-message-id")
+            : UUID.randomUUID().toString();
     }
 }
